@@ -1,0 +1,7 @@
+
+
+
+
+
+clean:
+	 rm -rf *.exe

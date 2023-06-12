@@ -1,0 +1,49 @@
+#include<bits/stdc++.h>
+using namespace std;
+int expression(char str[])
+{
+	stack<int> s;
+	int i,a,b,r;
+	for(i=0;str[i]!='\0';i++)
+	{
+		if(str[i]>='0'&&str[i]<='9')
+		{
+			s.push(str[i]-'0');
+		}
+		if(str[i]=='+'||str[i]=='-'||str[i]=='*'||
+		str[i]=='/'){
+			b=s.top();
+			s.pop();
+			a=s.top();
+			s.pop();
+			if(str[i]=='+')
+			{
+				r=a+b;
+				s.push(r);
+			}
+			else if(str[i]=='-')
+			{
+				r=a-b;
+				s.push(r);
+			}
+			else if(str[i]=='*')
+			{
+				r=a*b;
+				s.push(r);
+			}
+			else if(str[i]=='/')
+			{
+				r=a/b;
+				s.push(r);
+			}
+		}
+	}
+	r=s.top();
+	return r;
+}
+int main()
+{
+	char str[100];
+	gets(str);
+	printf("%d\n",expression(str));
+}
