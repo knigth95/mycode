@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>菜鸟教程(runoob.com)</title>
+</head>
+<body>
+
+<p>kkkk</p>
+<form action="/del_img" method="post">
+
+{%for img in imgs %}
+<img src="{{img}}" width="145" height="126" alt="Planets" ><input type="submit" name="{{img}}" value="删除">
+{% endfor %}
+</form>
+
+</body>
+</html>

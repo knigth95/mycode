@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>树莓派</title>
+        <style>
+            .maindiv {
+                clear: none;
+                float: none;
+                flex-direction: row;
+                display: flex !important;
+                }
+            .maintable {
+                    display: flex !important;
+                }    
+        </style>
+    </head>
+
+    <body>
+        <div class="maindiv">
+            <img src="{{ url_for('video_feed')}}">
+            <table class="maintable">
+                <tr>
+                    <td><input type="submit" value="进行人脸识别"></td>
+                </tr>
+                <tr>
+                    <td>
+                        说明：由于树莓派人脸识别时间长，难以实时完成，这里设计成点击按键启动识别。每点击一次进行一次人脸识别。
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>

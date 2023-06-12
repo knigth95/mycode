@@ -1,0 +1,7 @@
+{
+    "jupyter.themeMatplotlibPlots": true,
+    "python.linting.pylintArgs": [
+        "--generate-members"
+    ]
+
+}

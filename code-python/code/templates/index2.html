@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Face Recognition</title>
+</head>
+<body>
+
+<div style="width: 100%;height: auto;text-align: center;">
+    <img src="" id="img" style="width: 50%;">
+</div>
+
+</body>
+
+<script>
+    var address = "localhost";
+    var port = 10101;
+    var ws = new WebSocket("ws://" + address + ":" + port + "/video");
+    var img = document.getElementById("img");
+
+    // 设置一个定时10ms,等待WebSocket 连接完成
+    var timer = setInterval(function () {
+        if (ws.readyState == 1) {
+            //想服务器发送数据,请求图片,这里发送的内容随便都可以
+            ws.send("msg");
+            clearInterval(timer);
+        }
+    }, 10);
+
+    //信息的回调处理函数
+    ws.onmessage = function (res) {
+        // 首先获取到一帧帧的图片
+        var img_src = JSON.parse(res.data)["img"];
+        img.src = img_src;
+        ws.send("msg");
+    }
+
+</script>
+</html>
